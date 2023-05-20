@@ -1,0 +1,171 @@
+$backColor: #191523;
+$textColor: #ffffff;
+$boxColor: #272136;
+$secondColor: #483b94;
+$fontFamily: vazirmant;
+
+@font-face {
+    font-family: $fontFamily;
+    src: url("../fonts/Vazirmatn-RD-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: $fontFamily;
+    src: url("../fonts/Vazirmatn-RD-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@mixin box-shadow {
+    box-shadow: 0 0 20px $secondColor;
+}
+
+@mixin border-priamry {
+    border: 2px solid $secondColor;
+}
+
+@mixin minibox {
+    display: inline-block;
+    width: 100%;
+    border-radius: 5px;
+    position: relative;
+    transition: 0.5s ease;
+    margin: 5px;
+    text-align: center;
+    transition: 0.5s ease;
+    position: relative;
+}
+
+@mixin miniboxHover {
+    @include box-shadow();
+    background-color: $boxColor;
+    // bottom: 5px;
+}
+
+* {
+    color: $textColor;
+    font-family: $fontFamily;
+}
+*::selection {
+    background-color: $secondColor;
+}
+body {
+    background-color: $backColor;
+}
+
+a {
+    color: $textColor;
+    text-decoration: none;
+}
+a:hover {
+    color: $textColor;
+}
+
+section {
+    //@include box-shadow();
+    border-radius: 10px;
+    padding: 20px;
+    background-color: $boxColor;
+    transition: 0.5s ease;
+}
+
+section:hover {
+    @include box-shadow();
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: bold;
+}
+
+img.profile {
+    @include box-shadow();
+    width: 100%;
+    border-radius: 20px;
+}
+
+.skill {
+    @include minibox();
+    font-size: 1.2rem;
+    background-color: $secondColor;
+    @include border-priamry();
+    padding: 10px;
+}
+.skill:hover {
+    @include miniboxHover();
+}
+
+.certificate {
+    margin: 5px;
+    img {
+        @include box-shadow();
+        @include minibox();
+    }
+}
+
+.certificate:hover {
+    img {
+        @include miniboxHover();
+    }
+}
+
+.work-sample {
+    @include minibox();
+    background-color: $secondColor;
+    padding: 10px;
+    P {
+        text-align: start;
+    }
+    a {
+        background-color: $boxColor;
+        padding: 5px;
+        font-weight: 1.2rem;
+        border-radius: 5px;
+        display: inline-block;
+        width: 49%;
+        text-align: center;
+        transition: 0.5s ease;
+        @include border-priamry();
+    }
+}
+
+.work-sample:hover {
+    @include miniboxHover();
+    a {
+        background-color: $secondColor;
+    }
+    a:hover {
+        @include miniboxHover();
+    }
+}
+
+.socials{
+    display: flex;
+    justify-content: center;
+}
+.social{
+    @include box-shadow();
+    border-radius: 50%;
+    margin: 10px;
+    font-size: 2rem;
+    background-color: $secondColor;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s ease;
+}
+.social:hover{
+    box-shadow: 0 0 10px $secondColor;
+    font-size: 2.5rem;
+    width: 60px;
+    height: 60px;
+}
